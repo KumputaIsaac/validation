@@ -106,3 +106,7 @@ body{
     display: none;
     /* visibility: hidden; */
 }
+
+.container .show{
+    display: block;
+}

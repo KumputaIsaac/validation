@@ -3,9 +3,14 @@ const username= document.getElementById('username')
 const password= document.getElementById('password')
 const passwordCheck= document.getElementById('passwordCheck')
 const email= document.getElementById('email')
+const p= document.getElementById('pee')
 
 
 
+let w = false;
+let x = false;
+let y = false;
+let z = false;
 function setErrorFor(input,message){
     const formControl = input.parentElement;
     const small = formControl.querySelector('small')
@@ -13,17 +18,27 @@ function setErrorFor(input,message){
     small.innerText = message;
     
     formControl.className = 'form-control error'
+     w = false;
+     x = false;
+     y = false;
+     z = false;
 }
 
 function setSuccessfor(input){
     const formControl = input.parentElement;
-    
     formControl.className = 'form-control success'
+}
+
+function knowX(){
+    // console.log(w,x,y,z)
+    if(x==true&&y==true&&z==true&&w==true){
+        // console.log('oya')
+        p.className ='show'
+    }
 }
 
 
 
-console.log( )
 
 
 form.addEventListener('submit',(e)=>{
@@ -44,6 +59,7 @@ function checkInputs(){
     }else{
         //add success class
         setSuccessfor(username)
+        w=true
     }
 
     if(emailvalue===''){
@@ -54,12 +70,14 @@ function checkInputs(){
     }
     else{
         setSuccessfor(email)
+        x=true
     }
     if(passwordvalue===''){
         setErrorFor(password, 'password cannot be blank')
     }else{
         //add success class
         setSuccessfor(password)
+        y=true
     }
 
     if(passwordCheckvalue===''){
@@ -70,7 +88,10 @@ function checkInputs(){
     else{
         //add success class
         setSuccessfor(passwordCheck)
+        z=true
     }
+
+    knowX()
 }
 
 
